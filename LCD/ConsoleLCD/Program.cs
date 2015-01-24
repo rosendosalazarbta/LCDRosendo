@@ -114,9 +114,9 @@ namespace ConsoleLCD
         }
         
         static void ExportXmlToSql() {
-            for (int i = 3; i <= NumberFiles; i++) {
+            for (int i = 1; i <= NumberFiles; i++) {
                 connection.StoredXmlToQql(/*@"C:\Users\ACER\Documents\GitHub\LCO\A" + i + "Limpio.xml"*/ "FILE" + i);
-                Console.WriteLine("Archivo Exportado. {0} de {1}", 1, NumberFiles);
+                Console.WriteLine("Archivo Exportado. {0} de {1}", i, NumberFiles);
             }
         }
 
