@@ -55,14 +55,13 @@ namespace ConsoleLCD
         static void DownloadFile(){
             DeleteFile();
             bool bandera = true;
-            int cont = 0;
+            int cont = 1;
             string UriAddress = "http://www.gestionix.com/zip/";
             while (bandera){
                 try {
                     String FileName = "A" + cont + ".gz";
                     WebClient webClient = new WebClient();
-                    webClient.Proxy = null;
-                    webClient.DownloadFile((UriAddress + FileName), directory + FileName);
+                    webClient.DownloadFile(UriAddress + FileName, directory + FileName);
                     Console.WriteLine("->Archivo {0} se ha descargado exitosamente.", FileName);
                     cont++;
                 }catch(WebException webex){
@@ -70,7 +69,7 @@ namespace ConsoleLCD
                 }
             }
 
-            NumberFiles = cont;
+            NumberFiles = cont - 1;
         }
 
         static void DecompressFiles(){
@@ -101,7 +100,7 @@ namespace ConsoleLCD
         }
 
         static void ExecuteCmd(string command) {
-            System.Diagnostics.ProcessStartInfo processStartInfo = new System.Diagnostics.ProcessStartInfo("cmd", "/c " + command);
+            ProcessStartInfo processStartInfo = new ProcessStartInfo("cmd", "/c " + command);
             processStartInfo.RedirectStandardOutput = true;
             processStartInfo.UseShellExecute = false;
             processStartInfo.CreateNoWindow = false;
