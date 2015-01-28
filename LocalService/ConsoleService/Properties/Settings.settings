@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ConsoleService.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConsoleService_localhost1_WebService" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:1393/WebSite/WebService.asmx</Value>
+    </Setting>
+    <Setting Name="ConsoleService_localhost_WebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/WebService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

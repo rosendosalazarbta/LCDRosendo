@@ -75,7 +75,7 @@ namespace ConsoleLCD
         static void DecompressFiles(){
             for (int i = 1; i <= NumberFiles; i++){
                 string pathFile = directory + "A" + i + ".gz";
-                DirectoryInfo dirInfo = new DirectoryInfo(pathFile);
+                //DirectoryInfo dirInfo = new DirectoryInfo(pathFile);
                 FileInfo fileInfo = new FileInfo(pathFile);
 
                 FileStream fileStream = fileInfo.OpenRead();
