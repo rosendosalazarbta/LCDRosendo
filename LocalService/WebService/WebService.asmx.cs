@@ -20,11 +20,7 @@ namespace WebService
 
         [WebMethod]
         public string HelloWorld(){
-            string directory = System.Web.Hosting.HostingEnvironment.MapPath("~" + @"\Download\");
-            return Directory.GetFiles(directory, "*.gz").Length+"";
-            /*
-            string absolute = System.Web.Hosting.HostingEnvironment.MapPath("~" + @"\LogInfo\Log.txt");
-            return absolute;*/
+            return "Hello World";
         }
 
         [WebMethod]
@@ -51,13 +47,15 @@ namespace WebService
         [WebMethod]
         public string Status() {
             Operation operation = new Operation();
-            return operation.Status(@"C:\Users\ACER\Documents\GitHub\LocalService\WebService\LogInfo\Log.txt");
+            string mapPath = System.Web.Hosting.HostingEnvironment.MapPath("~" + @"\LogInfo\Log.txt");
+            return operation.Status(mapPath);
         }
 
         [WebMethod]
         public string Process() {
             Operation operation = new Operation();
-            return operation.Status(@"C:\Users\ACER\Documents\GitHub\LocalService\WebService\LogInfo\LogStart.txt");
+            string mapPath = System.Web.Hosting.HostingEnvironment.MapPath("~" + @"\LogInfo\LogStart.txt");
+            return operation.Status(mapPath);
         }
     }
 
