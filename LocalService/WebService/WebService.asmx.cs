@@ -20,22 +20,30 @@ namespace WebService
 
         [WebMethod]
         public string HelloWorld(){
-            return "Hello World" + "....";
+            string directory = System.Web.Hosting.HostingEnvironment.MapPath("~" + @"\Download\");
+            return Directory.GetFiles(directory, "*.gz").Length+"";
+            /*
+            string absolute = System.Web.Hosting.HostingEnvironment.MapPath("~" + @"\LogInfo\Log.txt");
+            return absolute;*/
         }
 
         [WebMethod]
         public void UpdateLCO(){
             Operation operation = new Operation();
-            StreamWriter sw = new StreamWriter(@"C:\Users\ACER\Documents\GitHub\LocalService\WebService\LogInfo\LogStart.txt");
+            string mapPath = System.Web.Hosting.HostingEnvironment.MapPath("~" + @"\LogInfo\LogStart.txt");
+            
+            StreamWriter sw = new StreamWriter(mapPath);
             sw.WriteLine("En Ejecución...");
             sw.Close();
             
             string log = operation.Start();
-            StreamWriter sw2 = new StreamWriter(@"C:\Users\ACER\Documents\GitHub\LocalService\WebService\LogInfo\Log.txt");
+            mapPath = System.Web.Hosting.HostingEnvironment.MapPath("~" + @"\LogInfo\Log.txt");
+            StreamWriter sw2 = new StreamWriter(mapPath);
             sw2.WriteLine(log);
             sw2.Close();
 
-            StreamWriter sw3 = new StreamWriter(@"C:\Users\ACER\Documents\GitHub\LocalService\WebService\LogInfo\LogStart.txt");
+            mapPath = System.Web.Hosting.HostingEnvironment.MapPath("~" + @"\LogInfo\LogStart.txt");
+            StreamWriter sw3 = new StreamWriter(mapPath);
             sw3.WriteLine("0");
             sw3.Close();
         }

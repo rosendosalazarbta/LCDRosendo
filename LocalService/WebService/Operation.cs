@@ -17,7 +17,7 @@ namespace WebService
         private string log;
 
         public Operation() {
-            directory = @"C:\Users\ACER\Documents\GitHub\LocalService\WebService\Download\";
+            directory = System.Web.Hosting.HostingEnvironment.MapPath("~" + @"\Download\");
             numFiles = Directory.GetFiles(directory, "*.gz").Length;
             log = "";
         }

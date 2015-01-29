@@ -32,10 +32,11 @@ namespace LocalService
                 
                 localhost.WebService webService = new localhost.WebService();
                 string hourNow = DateTime.Now.ToShortTimeString();
-                string hourAppConfig = System.Configuration.ConfigurationManager.AppSettings["hour"];
-                string hourStatus = System.Configuration.ConfigurationManager.AppSettings["hourStatus"];
+               
+                //string hourAppConfig = System.Configuration.ConfigurationManager.AppSettings["hour"];
+                //string hourStatus = System.Configuration.ConfigurationManager.AppSettings["hourStatus"];
 
-                if (hourNow == hourAppConfig) {
+                if (hourNow == "14:10") {
                     int contador = 1;
                     while(webService.Process() == "0" && contador < 5){
                         webService.UpdateLCO();
@@ -44,7 +45,7 @@ namespace LocalService
                     } 
                  }
 
-                if (hourNow == hourStatus) Status();
+                if (hourNow == "15:10") Status();
              }catch(Exception ex){
                     System.Diagnostics.EventLog.WriteEntry("Aplication", "Exception: " + ex.Message);
             }

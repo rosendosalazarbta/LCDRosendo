@@ -8,9 +8,13 @@ using System.Data.SqlClient;
 namespace WebService
 {
     public class Connection {
-        static private String CadConnection = "Data Source=ACER-PC; Initial Catalog=OPENXMLTesting; Integrated Security=True";
+        static private String CadConnection/* = "Data Source=ACER-PC; Initial Catalog=OPENXMLTesting; Integrated Security=True"*/;
         static private SqlConnection slqConnection;
         static private SqlCommand sqlCommand;
+
+        public Connection(){
+            CadConnection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
+        }
         
         private bool OpenConnection(){
             try {
